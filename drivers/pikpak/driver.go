@@ -67,10 +67,10 @@ func (d *PikPak) Link(ctx context.Context, file model.Obj, args model.LinkArgs) 
 		URL: resp.WebContentLink,
 	}
 	//媒体链接
-	//if len(resp.Medias) > 0 && resp.Medias[0].Link.Url != "" {
-	//	log.Debugln("use media link")
-	//	link.URL = resp.Medias[0].Link.Url
-	//}
+	if len(resp.Medias) > 0 && resp.Medias[0].Link.Url != "" {
+		log.Debugln("use media link")
+		link.URL = resp.Medias[0].Link.Url
+	}
 	return &link, nil
 }
 
